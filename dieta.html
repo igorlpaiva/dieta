@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Dieta">
+
+
+    <title>Plano Alimentar Igor - 2000 kcal</title>
+    <style>
+        :root {
+            --bg-color: #f0f2f5;
+            --card-bg: #ffffff;
+            --text-color: #1c1e21;
+            --header-color: #2c3e50;
+            --accent-color: #2980b9;
+            --sub-card-bg: #f9f9f9;
+            --sub-header-bg: #f1f2f6;
+            --border-color: #e0e0e0;
+            --shadow: rgba(0,0,0,0.08);
+            --sub-title-color: #d35400;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --card-bg: #1e1e1e;
+                --text-color: #e4e6eb;
+                --header-color: #ffffff;
+                --accent-color: #3498db;
+                --sub-card-bg: #2c2c2c;
+                --sub-header-bg: #3a3a3a;
+                --border-color: #444;
+                --shadow: rgba(0,0,0,0.3);
+                --sub-title-color: #e67e22;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 { color: var(--header-color); font-size: 1.6rem; margin-bottom: 25px; text-align: center; }
+        
+        .meal-container { width: 100%; max-width: 450px; margin-bottom: 15px; }
+        
+        details {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px var(--shadow);
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+        summary {
+            padding: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::after { content: '▼'; font-size: 0.7rem; color: #7f8c8d; }
+        details[open] summary::after { content: '▲'; }
+        
+        .meal-content {
+            padding: 0 18px 18px 18px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .main-suggestion { margin: 15px 0; }
+        .main-suggestion h3 { font-size: 1rem; color: var(--accent-color); margin-bottom: 8px; }
+        .main-suggestion ul { padding-left: 20px; margin: 0; list-style-type: square; }
+        .main-suggestion li { margin-bottom: 6px; font-size: 0.95rem; }
+
+        .subs-details {
+            margin-top: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--sub-card-bg);
+        }
+        .subs-summary {
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            background-color: var(--sub-header-bg);
+            font-weight: 600;
+        }
+        .subs-content {
+            padding: 12px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        .subs-item { margin-bottom: 15px; border-bottom: 1px dashed var(--border-color); padding-bottom: 10px; }
+        .subs-item:last-child { border-bottom: none; margin-bottom: 0; }
+        .subs-title { font-weight: bold; color: var(--sub-title-color); display: block; margin-bottom: 5px; }
+        .sub-option { display: block; padding-left: 5px; margin-bottom: 4px; border-bottom: 1px solid var(--border-color); padding-bottom: 4px; }
+        .sub-option:last-child { border-bottom: none; }
+        
+        b { font-weight: 800; color: inherit; }
+
+        .full-list-section { width: 100%; max-width: 450px; margin-top: 30px; border-top: 3px solid var(--accent-color); padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <h1>🍎 Planejamento Alimentar</h1>
+
+    <div class="meal-container">
+        <details>
+            <summary>☕ Café da Manhã</summary>
+            <div class="meal-content">
+                <div class="main-suggestion">
+                    <h3>Sugestão Principal:</h3>
+                    <ul>
+                        <li>Café: 1 xícara (<b>80ml</b>)</li>
+                        <li>Ovo frito/mexido: 3 unidades médias (<b>150g</b>)</li>
+                        <li>Laranja pera: 1 unidade média (<b>140g</b>)</li>
+                        <li>Pão francês: 1 unidade (<b>50g</b>)</li>
+                        <li>Queijo muçarela: 1 fatia grande (<b>30g</b>)</li>
+                    </ul>
+                </div>
+                <details class="subs-details">
+                    <summary class="subs-summary">🔄 Ver Substituições</summary>
+                    <div class="subs-content">
+                        <div class="subs-item"><span class="subs-title">Para o Café:</span>
+                            <span class="sub-option">1. Chá: 1 xícara (<b>180ml</b>)</span>
+                            <span class="sub-option">2. Água com limão: 1 copo americano duplo (<b>240ml</b>)</span>
+                            <span class="sub-option">3. Escolha 1 porção do grupo 1 da lista completa.</span>
+                        </div>
+                        <div class="subs-item"><span class="subs-title">Para o Ovo:</span>
+                            <span class="sub-option">1. Clara de ovo cozida: 6 unidades (<b>180g</b>)</span>
+                            <span class="sub-option">2. Carne seca cozida: 3 colheres sopa cheia (<b>75g</b>)</span>
+                            <span class="sub-option">3. Escolha 1.5 porções do grupo 4 da lista completa.</span>
+                        </div>
+                        <div class="subs-item"><span class="subs-title">Para a Laranja:</span>
+                            <span class="sub-option">1. Kiwi: 2 unidades pequenas (<b>130g</b>)</span>
+                            <span class="sub-option">2. Mamão formosa: 1 fatia média (<b>170g</b>)</span>
+                            <span class="sub-option">3. Escolha 1 porção do grupo 9 da lista completa.</span>
+                        </div>
+                        <div class="subs-item"><span class="subs-title">Para o Pão Francês:</span>
+                            <span class="sub-option">1. Pão de forma tradicional: 2 fatias (<b>50g</b>)</span>
+                            <span class="sub-option">2. Cuscuz de milho: 6 colheres sopa cheia (<b>90g</b>)</span>
+                            <span class="sub-option">3. Escolha 2 porções do grupo 12 da lista completa.</span>
+                        </div>
+                        <div class="subs-item"><span class="subs-title">Para o Queijo Muçarela:</span>
+                            <span class="sub-option">1. Creme de ricota: 3 colheres sopa (<b>60g</b>)</span>
+                            <span class="sub-option">2. Queijo minas frescal: 2 fatias pequenas (<b>40g</b>)</span>
+                            <span class="sub-option">3. Escolha 1 porção do grupo 13 da lista completa.</span>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <details>
+            <summary>🍲 Almoço</summary>
+            <div class="meal-content">
+                <div class="main-suggestion">
+                    <h3>Sugestão Principal:</h3>
+                    <ul>
+                        <li>Salada de folhas: 1 porção (<b>50g</b>)</li>
+                        <li>Tomate salada: 3 fatias grandes (<b>90g</b>)</li>
+                        <li>Filé de frango grelhado: 2.5 bifes pequenos (<b>125g</b>)</li>
+                        <li>Arroz branco cozido: 6 colheres sopa cheia (<b>150g</b>)</li>
+                        <li>Feijão Fradinho cozido: 3 conchas pequenas cheias (<b>195g</b>)</li>
+                        <li>Abacaxi: 2 fatias pequenas (<b>150g</b>)</li>
+                    </ul>
+                </div>
+                <details class="subs-details">
+                    <summary class="subs-summary">🔄 Ver Substituições</summary>
+                    <div class="subs-content">
+                        <div class="subs-item"><span class="subs-title">Para a Salada:</span>
+                            <span class="sub-option">1. Espinafre cru: 2 colheres sopa cheia (<b>50g</b>)</span>
+                            <span class="sub-option">2. Acelga: 2 folhas grandes (<b>40g</b>)</span>
+                            <span class="sub-option">3. Escolha 1 porção do grupo 2 da lista completa.</span>
+                        </div>
+                        <div class="subs-item"><span class="subs-title">Para o Tomate:</span>
+                            <span class="sub-option">1. Cenoura crua: 4 colheres sopa cheia (<b>68g</b>)</span>
+                            <span class="sub-option">2. Brócolis cozido: 2 ramos médios (<b>120g</b>)</span>
+                            <span class="sub-option">3. Escolha 1 porção do grupo 3 da lista completa.</span>
+                        </div>
+                        <div class="subs-item"><span class="subs-title">Para o Frango:</span>
+                            <span class="sub-option">1. Alcatra s/ gordura grelhada: 1.3 bife médio (<b>125g</b>)</span>
+                            <span class="sub-option">2. Filé de tilápia cozido: 2.5 filés médios (<b>150g</b>)</span>
+                            <span class="sub-option">3. Escolha 2.5 porções do grupo 4 da lista completa.</span>
+                        </div>
+                        <div class="subs-item"><span class="subs-title">Para o Arroz:</span>
+                            <span class="sub-option">1. Batata inglesa cozida: 12 colheres sopa cheia (<b>360g</b>)</span>
+                            <span class="sub-option">2. Macarrão cozido: 6 colheres arroz rasa (<b>150g</b>)</span>
+                            <span class="sub-option">3. Escolha 6 porções do grupo 5 da lista completa.</span>
+                        </div>
+                        <div class="subs-item"><span class="subs-title">Para o Feijão:</span>
+                            <span class="sub-option">1. Lentilha cozida: 3 colheres arroz cheia (<b>105g</b>)</span>
+                            <span class="sub-option">2. Grão de bico cozido: 3 colheres arroz cheia (<b>135g</b>)</span>
+                            <span class="sub-option">3. Escolha 3 porções do grupo 6 da lista completa.</span>
+                        </div>
+                        <div class="subs-item"><span class="subs-title">Para o Abacaxi:</span>
+                            <span class="sub-option">1. Tangerina poncã: 1 unidade média (<b>135g</b>)</span>
+                            <span class="sub-option">2. Laranja pera: 1 unidade média (<b>140g</b>)</span>
+                            <span class="sub-option">3. Escolha 1 porção do grupo 9 da lista completa.</span>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <details>
+            <summary>🍌 Lanche da Tarde</summary>
+            <div class="meal-content">
+                <div class="main-suggestion">
+                    <h3>Sugestão Principal:</h3>
+                    <ul>
+                        <li>Banana prata: 1 unidade grande (<b>55g</b>)</li>
+                        <li>Granola: 2 colheres sopa cheia (<b>22g</b>)</li>
+                        <li>Iogurte natural: 1 unidade (<b>170ml</b>)</li>
+                    </ul>
+                </div>
+                <details class="subs-details">
+                    <summary class="subs-summary">🔄 Ver Substituições</summary>
+                    <div class="subs-content">
+                        <div class="subs-item"><span class="subs-title">Para a Banana:</span>
+                            <span class="sub-option">1. Maçã argentina: 1 unidade pequena (<b>80g</b>)</span>
+                            <span class="sub-option">2. Uva Rubi ou Itália: 15 unidades (<b>120g</b>)</span>
+                            <span class="sub-option">3. Escolha 1 porção do grupo 9 da lista completa.</span>
+                        </div>
+                        <div class="subs-item"><span class="subs-title">Para a Granola:</span>
+                            <span class="sub-option">1. Aveia em flocos: 3 colheres sopa rasa (<b>21g</b>)</span>
+                            <span class="sub-option">2. Milho de pipoca s/ óleo: 2 colheres sopa (<b>19g</b>)</span>
+                            <span class="sub-option">3. Escolha 1 porção do grupo 12 da lista completa.</span>
+                        </div>
+                        <div class="subs-item"><span class="subs-title">Para o Iogurte:</span>
+                            <span class="sub-option">1. Requeijão cremoso: 2 colheres sopa cheia (<b>60g</b>)</span>
+                            <span class="sub-option">2. Queijo muçarela: 1 fatia grande (<b>30g</b>)</span>
+                            <span class="sub-option">3. Escolha 1 porção do grupo 13 da lista completa.</span>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <details>
+            <summary>🍝 Jantar</summary>
+            <div class="meal-content">
+                <div class="main-suggestion">
+                    <h3>Sugestão Principal:</h3>
+                    <ul>
+                        <li>Salada de folhas: 1 porção (<b>50g</b>)</li>
+                        <li>Tomate salada: 3 fatias grandes (<b>90g</b>)</li>
+                        <li>Atum sólido em óleo: 10 colheres sopa cheia (<b>150g</b>)</li>
+                        <li>Macarrão cozido: 6 colheres arroz rasa (<b>150g</b>)</li>
+                        <li>Suco de laranja lima: 2 copos pequenos (<b>330ml</b>)</li>
+                    </ul>
+                </div>
+                <details class="subs-details">
+                    <summary class="subs-summary">🔄 Ver Substituições</summary>
+                    <div class="subs-content">
+                        <div class="subs-item"><span class="subs-title">Para a Salada:</span>
+                            <span class="sub-option">1. Pepino cru: 3 colheres sopa cheia (<b>54g</b>)</span>
+                            <span class="sub-option">2. Espinafre refogado: 2 colheres sopa cheia (<b>50g</b>)</span>
+                            <span class="sub-option">3. Escolha 1 porção do grupo 2 da lista completa.</span>
+                        </div>
+                        <div class="subs-item"><span class="subs-title">Para o Tomate:</span>
+                            <span class="sub-option">1. Cenoura crua: 4 colheres sopa cheia (<b>68g</b>)</span>
+                            <span class="sub-option">2. Brócolis cozido: 2 ramos médios (<b>120g</b>)</span>
+                            <span class="sub-option">3. Escolha 1 porção do grupo 3 da lista completa.</span>
+                        </div>
+                        <div class="subs-item"><span class="subs-title">Para o Atum:</span>
+                            <span class="sub-option">1. Peito de frango desfiado: 5 colheres sopa cheia (<b>125g</b>)</span>
+                            <span class="sub-option">2. Patinho moído refogado: 5 colheres sopa cheia (<b>125g</b>)</span>
+                            <span class="sub-option">3. Escolha 2.5 porções do grupo 4 da lista completa.</span>
+                        </div>
+                        <div class="subs-item"><span class="subs-title">Para o Macarrão:</span>
+                            <span class="sub-option">1. Arroz branco cozido: 6 colheres sopa cheia (<b>150g</b>)</span>
+                            <span class="sub-option">2. Batata doce cozida: 6 fatias pequenas (<b>240g</b>)</span>
+                            <span class="sub-option">3. Escolha 6 porções do grupo 5 da lista completa.</span>
+                        </div>
+                        <div class="subs-item"><span class="subs-title">Para o Suco:</span>
+                            <span class="sub-option">1. Uva Rubi ou Itália: 30 unidades (<b>240g</b>)</span>
+                            <span class="sub-option">2. Tâmara desidratada: 4 colheres sopa (<b>40g</b>)</span>
+                            <span class="sub-option">3. Escolha 2 porções do grupo 9 da lista completa.</span>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </details>
+    </div>
+
+    <div class="full-list-section">
+        <details>
+            <summary>🔄 Lista de Substituição Completa</summary>
+            <div class="meal-content">
+                
+                <details class="subs-details"><summary class="subs-summary">Grupo 1: Baixa Caloria</summary><div class="subs-content">
+                    <span class="sub-option">Café: 1 xícara (<b>80ml</b>)</span>
+                    <span class="sub-option">Chá Mate: 1 xícara (<b>180ml</b>)</span>
+                    <span class="sub-option">Chá de erva doce: 1 xícara (<b>180ml</b>)</span>
+                    <span class="sub-option">Chá preto: 1 xícara (<b>180ml</b>)</span>
+                    <span class="sub-option">Água com limão: 1 copo americano duplo (<b>240ml</b>)</span>
+                </div></details>
+
+                <details class="subs-details"><summary class="subs-summary">Grupo 2: Vegetais A ou Folhosos</summary><div class="subs-content">
+                    <span class="sub-option">Acelga: 2 folhas grandes (<b>40g</b>)</span>
+                    <span class="sub-option">Agrião: 5 colheres sopa cheia (<b>35g</b>)</span>
+                    <span class="sub-option">Alface crespa/lisa/americana: 4 folhas médias (<b>40g</b>)</span>
+                    <span class="sub-option">Alface roxa: 4 folhas médias (<b>40g</b>)</span>
+                    <span class="sub-option">Alho poró: 4 colheres sopa cheia (<b>76g</b>)</span>
+                    <span class="sub-option">Almeirão cru: 4 folhas (<b>48g</b>)</span>
+                    <span class="sub-option">Aspargo cozido: 4 unidades médias (<b>30g</b>)</span>
+                    <span class="sub-option">Broto de alfafa: 4 colheres arroz (<b>56g</b>)</span>
+                    <span class="sub-option">Chicória: 5 folhas médias (<b>60g</b>)</span>
+                    <span class="sub-option">Couve manteiga crua: 2 colheres sopa cheia (<b>44g</b>)</span>
+                    <span class="sub-option">Espinafre cru: 2 colheres sopa cheia (<b>50g</b>)</span>
+                    <span class="sub-option">Folha de mostarda: 4 folhas (<b>10g</b>)</span>
+                    <span class="sub-option">Folhas de brócolis: 1 porção (<b>50g</b>)</span>
+                    <span class="sub-option">Jambu: 4 colheres sopa rasa (<b>40g</b>)</span>
+                    <span class="sub-option">Pepino cru: 3 colheres sopa cheia (<b>54g</b>)</span>
+                    <span class="sub-option">Rabanete cru: 3 colheres sopa cheia (<b>60g</b>)</span>
+                    <span class="sub-option">Repolho branco cru: 4 colheres sopa cheia (<b>40g</b>)</span>
+                    <span class="sub-option">Repolho refogado: 2 colheres sopa cheia (<b>40g</b>)</span>
+                    <span class="sub-option">Repolho roxo cru: 4 colheres sopa cheia (<b>40g</b>)</span>
+                    <span class="sub-option">Rúcula: 8 folhas (<b>48g</b>)</span>
+                    <span class="sub-option">Salada de folhas (alface, rúcula): 1 porção (<b>50g</b>)</span>
+                </div></details>
+
+                <details class="subs-details"><summary class="subs-summary">Grupo 3: Vegetais B ou Hortaliças</summary><div class="subs-content">
+                    <span class="sub-option">Abobrinha italiana cozida/refogada: 2 colheres arroz cheia (<b>140g</b>)</span>
+                    <span class="sub-option">Abóbora cabotian cozida: 1 colher sopa (<b>36g</b>)</span>
+                    <span class="sub-option">Abóbora moranga cozida: 3 colheres sopa cheia (<b>110g</b>)</span>
+                    <span class="sub-option">Alcachofra cozida: 1 unidade média (<b>35g</b>)</span>
+                    <span class="sub-option">Alho poró: 4 colheres sopa cheia (<b>76g</b>)</span>
+                    <span class="sub-option">Berinjela cozida: 1 colher arroz cheia (<b>75g</b>)</span>
+                    <span class="sub-option">Beterraba cozida: 3 colheres sopa cheia (<b>60g</b>)</span>
+                    <span class="sub-option">Beterraba crua: 2 colheres sopa rasa (<b>32g</b>)</span>
+                    <span class="sub-option">Broto de feijão cru: 1 colher arroz (<b>65g</b>)</span>
+                    <span class="sub-option">Brócolis cozido: 2 ramos médios (<b>120g</b>)</span>
+                    <span class="sub-option">Cebola cozida: 4 colheres sopa cheia (<b>40g</b>)</span>
+                    <span class="sub-option">Cenoura baby: 6 unidades médias (<b>60g</b>)</span>
+                    <span class="sub-option">Cenoura cozida: 3 colheres sopa cheia (<b>75g</b>)</span>
+                    <span class="sub-option">Cenoura crua: 4 colheres sopa cheia (<b>68g</b>)</span>
+                    <span class="sub-option">Chuchu cozido: 2 colheres arroz cheia (<b>90g</b>)</span>
+                    <span class="sub-option">Couve-flor cozida: 2 ramos médios (<b>120g</b>)</span>
+                    <span class="sub-option">Jiló cozido: 1 colher arroz rasa (<b>60g</b>)</span>
+                    <span class="sub-option">Palmito pupunha conserva: 4 colheres sopa cheia (<b>60g</b>)</span>
+                    <span class="sub-option">Pepino cru: 1 unidade média (<b>100g</b>)</span>
+                    <span class="sub-option">Pimentão amarelo/verde/vermelho cru: 4 colheres sopa cheia (<b>80g</b>)</span>
+                    <span class="sub-option">Quiabo cozido: 4 colheres sopa cheia (<b>80g</b>)</span>
+                    <span class="sub-option">Rabanete cru: 6 colheres sopa cheia (<b>120g</b>)</span>
+                    <span class="sub-option">Shimeji cozido: 1 colher arroz cheia (<b>45g</b>)</span>
+                    <span class="sub-option">Shitake cozido: 1 colher sopa cheia (<b>35g</b>)</span>
+                    <span class="sub-option">Tomate cereja: 6 unidades (<b>60g</b>)</span>
+                    <span class="sub-option">Tomate salada: 3 fatias grandes (<b>90g</b>)</span>
+                    <span class="sub-option">Vagem cozida: 4 colheres sopa cheia (<b>80g</b>)</span>
+                </div></details>
+
+                <details class="subs-details"><summary class="subs-summary">Grupo 4: Carnes e Proteínas</summary><div class="subs-content">
+                    <span class="sub-option">Acém moído cozido: 2 colheres sopa cheia (<b>55g</b>)</span>
+                    <span class="sub-option">Alcatra s/ gordura grelhada: 0.5 bife médio (<b>50g</b>)</span>
+                    <span class="sub-option">Atum natural assado: 0.5 unidade média (<b>45g</b>)</span>
+                    <span class="sub-option">Atum sólido em óleo: 4 colheres sopa cheia (<b>60g</b>)</span>
+                    <span class="sub-option">Bacalhau assado/ensopado/refogado: 1 colher arroz cheia (<b>55g</b>)</span>
+                    <span class="sub-option">Bacalhau cozido: 2 colheres arroz rasa (<b>80g</b>)</span>
+                    <span class="sub-option">Bisteca de porco grelhada: 1 bife pequeno (<b>50g</b>)</span>
+                    <span class="sub-option">Camarão rio grande cozido: 8 unidades médias (<b>80g</b>)</span>
+                    <span class="sub-option">Carne seca cozida: 2 colheres sopa cheia (<b>50g</b>)</span>
+                    <span class="sub-option">Clara de ovo cozida: 4 unidades (<b>120g</b>)</span>
+                    <span class="sub-option">Clara de ovo pasteurizada: 0.5 copo americano (<b>100ml</b>)</span>
+                    <span class="sub-option">Contra filé s/ gordura grelhado: 1 bife pequeno (<b>40g</b>)</span>
+                    <span class="sub-option">Coxa de frango s/ pele grelhada: 1 unidade média (<b>50g</b>)</span>
+                    <span class="sub-option">Filé de Merluza assado: 0.5 filé médio (<b>60g</b>)</span>
+                    <span class="sub-option">Filé de frango grelhado: 1 bife pequeno (<b>50g</b>)</span>
+                    <span class="sub-option">Filé de tilápia cozido: 1 filé médio (<b>60g</b>)</span>
+                    <span class="sub-option">Filé mignon s/ gordura grelhado: 1 bife pequeno (<b>50g</b>)</span>
+                    <span class="sub-option">Fígado bovino grelhado: 0.5 bife médio (<b>55g</b>)</span>
+                    <span class="sub-option">Lombo de porco assado: 1 fatia pequena (<b>45g</b>)</span>
+                    <span class="sub-option">Maminha grelhada: 0.5 bife médio (<b>55g</b>)</span>
+                    <span class="sub-option">Ovo de codorna cozido: 10 unidades (<b>100g</b>)</span>
+                    <span class="sub-option">Ovo de galinha cozido: 2 unidades grandes (<b>110g</b>)</span>
+                    <span class="sub-option">Ovo de galinha frito/mexido: 2 unidades médias (<b>100g</b>)</span>
+                    <span class="sub-option">Patinho moído refogado: 2 colheres sopa cheia (<b>50g</b>)</span>
+                    <span class="sub-option">Patinho s/ gordura grelhado: 1 bife pequeno (<b>40g</b>)</span>
+                    <span class="sub-option">Peito de frango desfiado: 2 colheres sopa cheia (<b>50g</b>)</span>
+                    <span class="sub-option">Pernil de porco assado/grelhado: 1 bife pequeno (<b>50g</b>)</span>
+                    <span class="sub-option">Pescada branca grelhada: 0.5 posta pequena (<b>75g</b>)</span>
+                    <span class="sub-option">Picanha s/ gordura grelhada: 1 bife pequeno (<b>50g</b>)</span>
+                    <span class="sub-option">Salmão s/ pele grelhado: 0.5 filé pequeno (<b>60g</b>)</span>
+                    <span class="sub-option">Sardinha assada: 2 unidades médias (<b>50g</b>)</span>
+                    <span class="sub-option">Sardinha conserva em óleo: 3 colheres sopa (<b>60g</b>)</span>
+                    <span class="sub-option">Sobrecoxa de frango s/ pele assada: 1 unidade pequena (<b>50g</b>)</span>
+                    <span class="sub-option">Truta assada/grelhada: 0.5 filé médio (<b>60g</b>)</span>
+                </div></details>
+
+                <details class="subs-details"><summary class="subs-summary">Grupo 5: Cereais e Tubérculos</summary><div class="subs-content">
+                    <span class="sub-option">Arroz 7 grãos/branco/integral: 1 colher sopa cheia (<b>25g</b>)</span>
+                    <span class="sub-option">Batata baroa/Mandioquinha cozida: 1 colher arroz rasa (<b>35g</b>)</span>
+                    <span class="sub-option">Batata doce cozida: 1 fatia pequena (<b>40g</b>)</span>
+                    <span class="sub-option">Batata inglesa cozida: 2 colheres sopa cheia (<b>60g</b>)</span>
+                    <span class="sub-option">Batata inglesa sauté: 2 colheres sopa rasa (<b>50g</b>)</span>
+                    <span class="sub-option">Batata yacon cozida: 2 colheres sopa (<b>65g</b>)</span>
+                    <span class="sub-option">Inhame cozido: 1 fatia pequena (<b>30g</b>)</span>
+                    <span class="sub-option">Macarrão cozido (todos tipos): 1 colher arroz rasa (<b>25g</b>)</span>
+                    <span class="sub-option">Mandioca/Aipim cozido: 1 colher sopa rasa (<b>25g</b>)</span>
+                    <span class="sub-option">Milho verde cozido/enlatado: 1 colher sopa cheia (<b>24g</b>)</span>
+                    <span class="sub-option">Quinoa cozida: 2 colheres sopa cheia (<b>40g</b>)</span>
+                </div></details>
+
+                <details class="subs-details"><summary class="subs-summary">Grupo 6: Feijão e Leguminosas</summary><div class="subs-content">
+                    <span class="sub-option">Ervilha em vagem cozida: 3 colheres sopa cheia (<b>90g</b>)</span>
+                    <span class="sub-option">Ervilha enlatada: 1 colher arroz cheia (<b>38g</b>)</span>
+                    <span class="sub-option">Feijão fradinho/carioca/preto cozido: 1 concha pequena cheia (<b>65g</b>)</span>
+                    <span class="sub-option">Feijão branco cozido: 1 colher arroz cheia (<b>35g</b>)</span>
+                    <span class="sub-option">Feijão verde: 2 colheres sopa (<b>37g</b>)</span>
+                    <span class="sub-option">Grão de bico cozido: 1 colher arroz cheia (<b>45g</b>)</span>
+                    <span class="sub-option">Lentilha cozida: 1 colher arroz cheia (<b>35g</b>)</span>
+                </div></details>
+
+                <details class="subs-details"><summary class="subs-summary">Grupo 7: Óleos e Gorduras</summary><div class="subs-content">
+                    <span class="sub-option">Azeite de oliva: 1 colher sopa rasa (<b>8ml</b>)</span>
+                    <span class="sub-option">Manteiga sem sal: 1 colher sobremesa rasa (<b>13g</b>)</span>
+                    <span class="sub-option">Óleo de coco: 1 colher sobremesa rasa (<b>8ml</b>)</span>
+                    <span class="sub-option">Óleo de soja: 1 colher sopa rasa (<b>8g</b>)</span>
+                </div></details>
+
+                <details class="subs-details"><summary class="subs-summary">Grupo 9: Frutas Comuns</summary><div class="subs-content">
+                    <span class="sub-option">Abacaxi natural: 2 fatias pequenas (<b>150g</b>) / Desidratado: 10 un (<b>21g</b>)</span>
+                    <span class="sub-option">Acerola: 15 unidades (<b>180g</b>)</span>
+                    <span class="sub-option">Ameixa crua: 3 un pequenas (<b>102g</b>) / Seca: 5 un médias (<b>25g</b>)</span>
+                    <span class="sub-option">Amora preta: 2 xícaras chá (<b>200g</b>) / Amora: 1 xícara chá (<b>100g</b>)</span>
+                    <span class="sub-option">Bacuri: 2 unidades pequenas (<b>80g</b>)</span>
+                    <span class="sub-option">Banana Maçã/Nanica: 1 un média (<b>65g</b>) / Prata: 1 un grande (<b>55g</b>)</span>
+                    <span class="sub-option">Banana Ouro: 1 un média (<b>40g</b>) / Da terra: 0.5 un grande (<b>50g</b>)</span>
+                    <span class="sub-option">Banana desidratada: 10 unidades médias (<b>37g</b>)</span>
+                    <span class="sub-option">Caju cru: 2 un pequenas (<b>160g</b>) / Cajá: 2 un grandes (<b>140g</b>)</span>
+                    <span class="sub-option">Caldo de Cana: 0.5 copo americano pequeno (<b>82ml</b>)</span>
+                    <span class="sub-option">Caqui: 1 unidade pequena (<b>85g</b>) / Carambola: 2 un médias (<b>150g</b>)</span>
+                    <span class="sub-option">Cereja: 12 unidades (<b>84g</b>) / Ciriguela: 4 un (<b>80g</b>)</span>
+                    <span class="sub-option">Damasco desidratado: 2 un médias (<b>18g</b>) / Figo seco: 1 un pequena (<b>20g</b>)</span>
+                    <span class="sub-option">Figo natural: 2 un grandes (<b>140g</b>) / Framboesa: 8 colheres sopa (<b>120g</b>)</span>
+                    <span class="sub-option">Geléia s/ açúcar: 2 colheres sobremesa (<b>52g</b>) / Geléia c/ açúcar: 1 colher sopa (<b>22g</b>)</span>
+                    <span class="sub-option">Goiaba: 1 un pequena (<b>105g</b>) / Graviola: 0.5 un (<b>115g</b>)</span>
+                    <span class="sub-option">Jabuticaba: 20 un médias (<b>100g</b>) / Jaca: 5 bagos (<b>60g</b>)</span>
+                    <span class="sub-option">Kiwi: 2 un pequenas (<b>130g</b>) / Laranja lima/pera: 1 un média (<b>140g</b>)</span>
+                    <span class="sub-option">Limão tahiti: 2 unidades pequenas (<b>160g</b>)</span>
+                    <span class="sub-option">Mamão formosa: 1 fatia média (<b>170g</b>) / Papaia: 0.5 un pequena (<b>135g</b>)</span>
+                    <span class="sub-option">Manga Palmer: 0.5 un média (<b>70g</b>) / Tommy Atkins: 1 un média (<b>140g</b>)</span>
+                    <span class="sub-option">Mangaba: 6 unidades (<b>156g</b>) / Maracujá: 1 un grande (<b>100g</b>)</span>
+                    <span class="sub-option">Maçã Fuji: 1 un pequena (<b>90g</b>) / Argentina: 1 un pequena (<b>80g</b>)</span>
+                    <span class="sub-option">Maçã desidratada: 12 unidades médias (<b>17g</b>)</span>
+                    <span class="sub-option">Melancia: 1 fatia média (<b>200g</b>) / Melão: 2 fatias grandes (<b>230g</b>)</span>
+                    <span class="sub-option">Mirtilo/Blueberry: 1 xícara chá (<b>100g</b>) / Morango: 10 un (<b>200g</b>)</span>
+                    <span class="sub-option">Nectarina: 1 un pequena (<b>130g</b>) / Nêspera: 3 un grandes (<b>120g</b>)</span>
+                    <span class="sub-option">Pera Park/Willians: 1 unidade média (<b>110g</b>)</span>
+                    <span class="sub-option">Pinha/Fruta do conde: 1 unidade média (<b>60g</b>)</span>
+                    <span class="sub-option">Pitaia branca: 0.5 un pequena (<b>135g</b>) / Vermelha: 1 un pequena (<b>270g</b>)</span>
+                    <span class="sub-option">Pitanga: 16 un (<b>160g</b>) / Polpa cupuaçu: 1 polpa (<b>130g</b>)</span>
+                    <span class="sub-option">Pêssego: 2 un médias (<b>120g</b>) / Desidratado: 0.5 un média (<b>18g</b>)</span>
+                    <span class="sub-option">Romã: 6 colheres sopa cheia (<b>90g</b>)</span>
+                    <span class="sub-option">Suco uva concentrado: 0.5 copo médio (<b>100ml</b>)</span>
+                    <span class="sub-option">Suco laranja lima/pera: 1 copo americano pequeno (<b>165ml</b>)</span>
+                    <span class="sub-option">Tamarindo: 3 unidades (<b>24g</b>) / Tangerina poncã: 1 un média (<b>135g</b>)</span>
+                    <span class="sub-option">Tâmara desidratada: 2 colheres sopa (<b>20g</b>)</span>
+                    <span class="sub-option">Uva Rubi/Itália: 15 un (<b>120g</b>) / Uva passa: 1 colher sopa (<b>18g</b>)</span>
+                    <span class="sub-option">Água de coco: 1 copo duplo cheio (<b>240ml</b>)</span>
+                </div></details>
+
+                <details class="subs-details"><summary class="subs-summary">Grupo 11: Nozes e Sementes</summary><div class="subs-content">
+                    <span class="sub-option">Amendoim cru/torrado: 1 colher sopa cheia (<b>19g</b>)</span>
+                    <span class="sub-option">Amêndoa: 20 unidades (<b>20g</b>) / Avelã: 16 unidades (<b>15g</b>)</span>
+                    <span class="sub-option">Castanha de baru: 1 colher sopa cheia (<b>15g</b>)</span>
+                    <span class="sub-option">Castanha de caju crua/torrada: 8 unidades (<b>20g</b>)</span>
+                    <span class="sub-option">Castanha-do-Brasil/Pará crua: 4 unidades (<b>16g</b>)</span>
+                    <span class="sub-option">Leite de amêndoas: 1 copo médio (<b>200ml</b>)</span>
+                    <span class="sub-option">Macadâmia crua/torrada: 5 unidades (<b>15g</b>)</span>
+                    <span class="sub-option">Mix de castanhas: 2 colheres sopa (<b>25g</b>) / Noz crua: 4 un (<b>20g</b>)</span>
+                    <span class="sub-option">Pasta de amendoim integral: 1 colher sopa cheia (<b>20g</b>)</span>
+                    <span class="sub-option">Pistache torrado: 1 colher sopa cheia (<b>19g</b>)</span>
+                    <span class="sub-option">Semente de abóbora/chia/linhaça: 2 colheres sopa (<b>30g</b>)</span>
+                    <span class="sub-option">Semente de gergelim/girassol: 1 colher sopa rasa (<b>15g</b>)</span>
+                    <span class="sub-option">Semente de linhaça dourada: 2 colheres sobremesa rasa (<b>20g</b>)</span>
+                </div></details>
+
+                <details class="subs-details"><summary class="subs-summary">Grupo 12: Pães e Fibras</summary><div class="subs-content">
+                    <span class="sub-option">Aveia flocos: 3 col. sopa rasa (<b>21g</b>) / Farelo: 3 col. sopa (<b>30g</b>)</span>
+                    <span class="sub-option">Barra de cereal: 1 unidade (<b>25g</b>) / Bolacha arroz: 8 un (<b>20g</b>)</span>
+                    <span class="sub-option">Cuscuz de milho: 3 colheres sopa cheia (<b>45g</b>) / Cozido: 0.5 pedaço (<b>45g</b>)</span>
+                    <span class="sub-option">Farinha Centeio/Aveia: 1 colher sopa cheia (<b>20g</b>/<b>18g</b>)</span>
+                    <span class="sub-option">Farinha linhaça: 2 col. sopa (<b>30g</b>) / Mandioca: 1 col. sopa (<b>16g</b>)</span>
+                    <span class="sub-option">Goma de tapioca: 1 colher sopa cheia (<b>20g</b>)</span>
+                    <span class="sub-option">Granola: 2 colheres sopa cheia (<b>22g</b>)</span>
+                    <span class="sub-option">Leite Arroz: 1 copo americano (<b>165ml</b>) / Aveia: 1 copo médio (<b>200ml</b>)</span>
+                    <span class="sub-option">Milho de pipoca s/ óleo: 2 colheres sopa (<b>18.5g</b>)</span>
+                    <span class="sub-option">Polvilho doce: 1 colher sopa cheia (<b>20g</b>)</span>
+                    <span class="sub-option">Pão de forma (todos): 1 fatia (<b>25g</b>) / Francês: 0.5 un (<b>25g</b>)</span>
+                    <span class="sub-option">Pão sírio/pita: 0.5 un (<b>23g</b>) / Tipo folha/rap: 1 un (<b>40g</b>)</span>
+                    <span class="sub-option">Quinoa em flocos: 1 colher sopa (<b>18g</b>)</span>
+                    <span class="sub-option">Torrada integral/tradicional: 2 unidades (<b>20g</b>)</span>
+                </div></details>
+
+                <details class="subs-details"><summary class="subs-summary">Grupo 13: Laticínios e Derivados</summary><div class="subs-content">
+                    <span class="sub-option">Coalhada natural/desnatada: 6 colheres sopa cheia (<b>180g</b>)</span>
+                    <span class="sub-option">Creme de ricota/light: 3 colheres sopa (<b>60g</b>)</span>
+                    <span class="sub-option">Iogurte grego/natural desnatado/natural: 1 un (<b>170ml</b>/<b>100g</b>)</span>
+                    <span class="sub-option">Iogurte natural proteico: 1 copo americano pequeno (<b>165g</b>)</span>
+                    <span class="sub-option">Leite em pó (todos): 1 a 2 colheres sopa (<b>25g</b>/<b>20g</b>)</span>
+                    <span class="sub-option">Leite vaca (integral/desnatado/semi): 1 copo americano duplo (<b>240ml</b>)</span>
+                    <span class="sub-option">Queijo coalho: 2 fatias pequenas (<b>30g</b>)</span>
+                    <span class="sub-option">Queijo minas frescal/light: 2 fatias pequenas (<b>40g</b>)</span>
+                    <span class="sub-option">Queijo muçarela/búfala: 1 fatia grande/média (<b>30g</b>)</span>
+                    <span class="sub-option">Queijo parmesão: 1 colher sopa cheia (<b>15g</b>)</span>
+                    <span class="sub-option">Queijo prato/meia cura: 2 fatias médias/pequenas (<b>30g</b>/<b>40g</b>)</span>
+                    <span class="sub-option">Queijo cottage: 4 col. sopa (<b>60g</b>) / Ricota: 2 fatias (<b>70g</b>)</span>
+                    <span class="sub-option">Requeijão cremoso: 2 colheres sopa cheia (<b>60g</b>)</span>
+                </div></details>
+
+                <details class="subs-details"><summary class="subs-summary">Grupo 15: Açúcares</summary><div class="subs-content">
+                    <span class="sub-option">Achocolatado em pó: 1 colher sopa cheia (<b>15g</b>)</span>
+                    <span class="sub-option">Açúcar mascavo: 1 colher sopa rasa (<b>11g</b>)</span>
+                    <span class="sub-option">Açúcar: 1 colher sobremesa rasa (<b>9g</b>)</span>
+                    <span class="sub-option">Mel: 1 colher sopa rasa (<b>15g</b>)</span>
+                    <span class="sub-option">Melado de cana: 1 colher sopa rasa (<b>16g</b>)</span>
+                    <span class="sub-option">Xylitol: 1 colher sopa (<b>10g</b>)</span>
+                </div></details>
+
+            </div>
+        </details>
+    </div>
+
+</body>
+</html>
